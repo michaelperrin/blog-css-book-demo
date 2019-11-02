@@ -27,22 +27,39 @@ h2 {
 
 /* Blank pages */
 .blank-page {
-    page: blank;
-    page-break-after: always;
+  page: blank;
+  page-break-after: always;
 }
 
 @page blank {
-    @bottom-center {
-        content: none;
-    }
+  @bottom-center {
+    content: none;
+  }
 
-    @top-left {
-        content: none;
-    }
+  @top-left {
+    content: none;
+  }
 
-    @top-right {
-        content: none;
-    }
+  @top-right {
+    content: none;
+  }
+}
+
+/* Table of contents */
+.table-of-contents ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  page-break-after: always;
+}
+
+.table-of-contents ul a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.table-of-contents ul a::after {
+  content: leader('.') target-counter(attr(href), page);
 }
 
 /* Display links as footnotes */
@@ -51,17 +68,17 @@ article {
 }
 
 article a {
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  color: inherit;
 }
 
 article a::after {
-    content: attr(href);
-    float: footnote;
-    font-size: 0.6rem;
-    text-align: left;
-    color: inherit;
+  content: attr(href);
+  float: footnote;
+  font-size: 0.6rem;
+  text-align: left;
+  color: inherit;
 }
 
 /* Start new chapters on a new page */
@@ -71,7 +88,7 @@ article {
 
 /* Avoid page break before subtitles */
 article h3 {
-    page-break-after: avoid;
+  page-break-after: avoid;
 }
 
 /* Avoid breaking paragraphs */

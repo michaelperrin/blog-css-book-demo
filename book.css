@@ -1,0 +1,80 @@
+@page {
+  size: 6.125in 9.250in; /* width height */
+  margin: 1cm 2cm;
+
+  /* Display page number in footer */
+  @bottom-center {
+    content: "Page " counter(page) " of " counter(pages);
+  }
+}
+
+/* Display chapter name in page header */
+h2 {
+  string-set: chapter_title content();
+}
+
+@page :left {
+  @top-left {
+    content: string(chapter_title);
+  }
+}
+
+@page :right {
+  @top-right {
+    content: string(chapter_title);
+  }
+}
+
+/* Blank pages */
+.blank-page {
+    page: blank;
+    page-break-after: always;
+}
+
+@page blank {
+    @bottom-center {
+        content: none;
+    }
+
+    @top-left {
+        content: none;
+    }
+
+    @top-right {
+        content: none;
+    }
+}
+
+/* Display links as footnotes */
+article {
+    counter-reset: footnote;
+}
+
+article a {
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    color: inherit;
+}
+
+article a::after {
+    content: attr(href);
+    float: footnote;
+    font-size: 0.6rem;
+    text-align: left;
+    color: inherit;
+}
+
+/* Start new chapters on a new page */
+article {
+  page-break-after: always;
+}
+
+/* Avoid page break before subtitles */
+article h3 {
+    page-break-after: avoid;
+}
+
+/* Avoid breaking paragraphs */
+article p {
+  page-break-inside: avoid;
+}

@@ -25,6 +25,35 @@ h2 {
   }
 }
 
+/* Cover */
+.cover {
+  page: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url('cover.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cover h1 {
+  margin-top: 1in;
+  margin-left: 1in;
+  margin-right: 1in;
+  color: #333;
+  text-align: left;
+  font-weight: 300;
+  font-size: 3.4rem;
+}
+
+@page cover {
+  margin: 0;
+
+  @bottom-center {
+    content: none;
+  }
+}
+
 /* Blank pages */
 .blank-page {
   page: blank;

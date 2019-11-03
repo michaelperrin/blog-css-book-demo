@@ -1,6 +1,6 @@
 @page {
   size: 6.125in 9.250in; /* width height */
-  margin: 1cm 2cm;
+  margin: 1.2in 0.8in;
 
   /* Display page number in footer */
   @bottom-center {
@@ -9,18 +9,20 @@
 }
 
 /* Display chapter name in page header */
-h2 {
+article h2 {
   string-set: chapter_title content();
 }
 
 @page :left {
   @top-left {
+    font-size: 0.7rem;
     content: string(chapter_title);
   }
 }
 
 @page :right {
   @top-right {
+    font-size: 0.7rem;
     content: string(chapter_title);
   }
 }
@@ -74,7 +76,11 @@ h2 {
   }
 }
 
-/* Table of contents */
+/* Table of contents (TOC) */
+.table-of-contents {
+  page: toc;
+}
+
 .table-of-contents ul {
   list-style-type: none;
   margin: 0;
@@ -91,14 +97,23 @@ h2 {
   content: leader('.') target-counter(attr(href), page);
 }
 
+@page toc {
+  @top-left {
+    content: none;
+  }
+
+  @top-right {
+    content: none;
+  }
+}
+
 /* Display links as footnotes */
 article {
-    counter-reset: footnote;
+  counter-reset: footnote;
 }
 
 article a {
   text-decoration: underline;
-  text-decoration-style: dashed;
   color: inherit;
 }
 

@@ -137,5 +137,6 @@ article h3 {
 
 /* Avoid breaking paragraphs */
 article p {
-  page-break-inside: avoid;
+  orphans: 2;
+  widows: 3;
 }

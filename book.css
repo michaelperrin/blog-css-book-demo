@@ -127,7 +127,7 @@ article a::after {
 
 /* Start new chapters on a new page */
 article {
-  page-break-after: always;
+  page-break-after: recto;
 }
 
 /* Avoid page break before subtitles */
